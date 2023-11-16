@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Text, SafeAreaView, View, Image, FlatList, StyleSheet } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import data from '../data/data'
 
 const ImageItem = ({ name, uri }) => (
@@ -11,6 +12,7 @@ const ImageItem = ({ name, uri }) => (
       }}
     />
     <Text style={styles.title}>{name}</Text>
+    <Ionicons name={'chevron-forward-circle'} size={34} color={'#B7441A'} style={styles.icon} />
   </View>
 );
 
@@ -33,22 +35,26 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: '#4A4446',
-    padding: 10,
+    padding: 0,
     marginVertical: 5,
     marginHorizontal: 10,
-    borderRadius: 5,
-    flexDirection: 'row'
+    borderRadius: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   image: {
-    height: 100,
-    width: 100,
-    borderRadius: 5 
+    height: 110,
+    width: 110,
+    borderBottomLeftRadius: 8,
+    borderTopLeftRadius: 8
   },
   title: {
-    textAlign: 'center',
-    marginTop: 30,
-    marginLeft: 10,
+    marginTop: 40,
     fontSize: 20,
-    color: '#BCC9DA'
+    color: '#E6E2DF'
   },
+  icon: {
+    marginRight: 8,
+    marginTop: 36
+  }
 });
