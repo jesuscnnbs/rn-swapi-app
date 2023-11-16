@@ -5,7 +5,11 @@ const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={({}) => ({
+        
+      })}
+    >
       <Tab.Screen name="Home" component={HomeView} />
       <Tab.Screen name="Characters" component={CharactersView} />
     </Tab.Navigator>

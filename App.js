@@ -7,10 +7,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <TabNavigator>
-      <View style={styles.container}>
-        <Text>Open? up App.js to start working on your app?!</Text>
-        <StatusBar style="auto" />
-      </View>
+        <View style={styles.container}>
+          <Text>Open? up App.js to start working on your app?!</Text>
+          <StatusBar style="auto" />
+        </View>
       </TabNavigator>
     </NavigationContainer>
   );
@@ -19,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#4D3D32",
     alignItems: "center",
     justifyContent: "center",
   },
