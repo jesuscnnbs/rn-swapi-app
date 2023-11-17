@@ -1,6 +1,7 @@
-import { HomeView, CharactersView } from '../../features/index'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { HomeView } from '../../features/index'
+import CharactersNavigator from './CharactersNavigator'
 
 const Tab = createBottomTabNavigator();
 
@@ -8,6 +9,7 @@ export default function TabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        headerShown: route.name === 'Characters' ? false : true,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           if (route.name === 'Home') iconName = 'home'
@@ -27,9 +29,7 @@ export default function TabNavigator() {
       })}
     >
       <Tab.Screen name="Home" component={HomeView} />
-      <Tab.Screen name="Characters" component={CharactersView} />
+      <Tab.Screen name="Characters" component={CharactersNavigator} />
     </Tab.Navigator>
   );
 }
-
-// #BAA79B

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Text, SafeAreaView, View, Image, FlatList, StyleSheet } from 'react-native';
+import { Text, SafeAreaView, TouchableOpacity, Image, FlatList, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import data from '../data/data'
 
-const ImageItem = ({ name, uri }) => (
-  <View style={styles.item}>
+const ImageItem = ({ name, uri, navigation }) => (
+  <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('Details')}>
     <Image
       style={styles.image}
       source={{
@@ -13,15 +14,16 @@ const ImageItem = ({ name, uri }) => (
     />
     <Text style={styles.title}>{name}</Text>
     <Ionicons name={'chevron-forward-circle'} size={34} color={'#B7441A'} style={styles.icon} />
-  </View>
+  </TouchableOpacity>
 );
 
 export default function CharactersView() {
+  const navigation = useNavigation()
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={data}
-        renderItem={({item}) => <ImageItem name={item.name} uri={item.uri} />}
+        renderItem={({item}) => <ImageItem name={item.name} uri={item.uri} navigation={navigation}/>}
         keyExtractor={item => item.name}
       />
     </SafeAreaView>
