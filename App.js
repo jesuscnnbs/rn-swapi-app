@@ -1,17 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import TabNavigator from "./app/core/navigation/TabNavigator"
+import CharactersProvider from "./app/core/context/CharactersContextProvider";
+import TabNavigator from "./app/core/navigation/TabNavigator";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <TabNavigator>
-        <View style={styles.container}>
-          <StatusBar style="auto" />
-        </View>
-      </TabNavigator>
-    </NavigationContainer>
+    <CharactersProvider>
+      <NavigationContainer>
+        <TabNavigator>
+          <View style={styles.container}>
+            <StatusBar style="auto" />
+          </View>
+        </TabNavigator>
+      </NavigationContainer>
+    </CharactersProvider>
   );
 }
 

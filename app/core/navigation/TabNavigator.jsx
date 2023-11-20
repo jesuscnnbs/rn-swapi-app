@@ -9,11 +9,11 @@ export default function TabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        headerShown: route.name === 'Characters' ? false : true,
+        headerShown: route.name === 'CharactersNav' ? false : true,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           if (route.name === 'Home') iconName = 'home'
-          if (route.name === 'Characters') iconName = 'people'
+          if (route.name === 'CharactersNav') iconName = 'people'
           if (route.name === 'Planets') iconName = 'planet'
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -29,7 +29,7 @@ export default function TabNavigator() {
       })}
     >
       <Tab.Screen name="Home" component={HomeView} />
-      <Tab.Screen name="Characters" component={CharactersNavigator} />
+      <Tab.Screen name="CharactersNav" component={CharactersNavigator} />
     </Tab.Navigator>
   );
 }
