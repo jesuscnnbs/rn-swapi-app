@@ -14,9 +14,16 @@ const ImageItem = ({ name, uri, navigation }) => (
       } : blanckImage}
     />
     <Text style={styles.title}>{name}</Text>
-    <Ionicons name={'chevron-forward-circle'} size={34} color={'#B7441A'} style={styles.icon} />
+    <Ionicons name={'chevron-forward-circle'} size={34} color={'#567BA1'} style={styles.icon} />
   </TouchableOpacity>
 );
+
+const Footer = ({ getPeople, next }) => (
+  <TouchableOpacity style={styles.loadMore} onPress={() => getPeople(next)}>
+    <Text>Load More</Text>
+    <Ionicons name={'add-circle'} />
+  </TouchableOpacity>
+)
 
 export default function CharactersView() {
   const navigation = useNavigation();
@@ -30,8 +37,7 @@ export default function CharactersView() {
             data={people}
             renderItem={({ item }) => <ImageItem name={item.name} uri={item.uri} navigation={navigation} />}
             keyExtractor={item => item.name}
-            onEndReached={() => handleGetPeople(nextPage)}
-            onEndReachedThreshold={1}
+            ListFooterComponent={() => <Footer getPeople={handleGetPeople} next={nextPage} />}
           />}
           {loading &&
             <View style={styles.loadingContainer}>
@@ -72,6 +78,10 @@ const styles = StyleSheet.create({
     marginTop: 36
   },
   loadingContainer: {
-    padding: 20,
+    padding: 30,
+  },
+  loadMore: {
+    padding: 30,
+    backgroundColor: '#567BA1'
   }
 });
